@@ -18,6 +18,10 @@ class UserInput extends StatelessWidget {
   }
 
   List<Widget> getInputs() {
-    return InputType.values.map((type) => InputCard(type: type)).toList();
+    return InputType.values
+        .map((type) => InputCard(
+              type: type,
+            ))
+        .toList();
   }
 }
