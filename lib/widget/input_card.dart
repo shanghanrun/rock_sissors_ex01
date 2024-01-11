@@ -3,7 +3,7 @@ import 'package:rock_sissors_ex01/const/input_type.dart';
 
 class InputCard extends StatelessWidget {
   final InputType type;
-  final VoidCallback callback;
+  final Function(InputType) callback;
 
   const InputCard({
     required this.type,
@@ -13,9 +13,9 @@ class InputCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: callback, // 혹은 ()=> callback(),
-      child: Expanded(
+    return Expanded(
+      child: InkWell(
+        onTap: () => callback(type),
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
           decoration: BoxDecoration(

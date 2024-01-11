@@ -4,20 +4,26 @@ import 'package:rock_sissors_ex01/widget/input_card.dart';
 
 class UserInput extends StatelessWidget {
   final bool isDone;
-  const UserInput({required this.isDone, super.key});
+  final Function(InputType) callback;
+  const UserInput({required this.isDone, required this.callback, super.key});
 
   @override
   Widget build(BuildContext context) {
     if (isDone) {
-      return const Placeholder();
+      // return const Placeholder();
+      return Row(
+        children: getInputs(callback),
+      );
     }
 
     return Row(
-      children: getInputs(),
+      children: getInputs(callback),
     );
   }
 
-  List<Widget> getInputs() {
-    return InputType.values.map((type) => InputCard(type: type)).toList();
+  List<Widget> getInputs(callback) {
+    return InputType.values
+        .map((type) => InputCard(type: type, callback: callback))
+        .toList();
   }
 }

@@ -6,6 +6,13 @@ class GameResult extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    if (isDone) {
+      return const Center(
+        child: Text('result'),
+      );
+    }
+    return const Center(
+      child: Text('가위, 바위, 보 중 하나를 선택해 주세요.'),
+    );
   }
 }
