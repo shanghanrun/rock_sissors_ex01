@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rock_sissors_ex01/const/input_type.dart';
-import 'package:rock_sissors_ex01/widget/input_card.dart';
+import 'package:rock_sissors_ex01/widget/cpu_input_card.dart';
 
 class CpuInput extends StatelessWidget {
   final bool isDone;
@@ -14,6 +14,6 @@ class CpuInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InputCard(type: cpuInput, callback: callback);
+    return CpuInputCard(type: cpuInput, callback: callback);
   }
 }

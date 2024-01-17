@@ -14,7 +14,7 @@ class GameBody extends StatefulWidget {
 
 class _GameBody extends State<GameBody> {
   late bool isDone;
-  late InputType? _userInput;
+  late InputType _userInput;
   late InputType cpuInput;
 
   void initCpuInput() {
@@ -25,6 +25,7 @@ class _GameBody extends State<GameBody> {
   void initState() {
     super.initState();
     isDone = false; // 게임이 진행되었는 지 여부
+    _userInput = InputType.rock; // 초기화
     initCpuInput();
   }
 
@@ -61,7 +62,8 @@ class _GameBody extends State<GameBody> {
           child: GameResult(isDone: isDone),
         ),
         Expanded(
-          child: UserInput(isDone: isDone, callback: setUserInput),
+          child: UserInput(
+              isDone: isDone, userInput: _userInput, callback: setUserInput),
         )
       ],
     );

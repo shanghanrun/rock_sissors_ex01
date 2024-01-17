@@ -5,5 +5,5 @@ enum InputType {
   scissors,
   paper;
 
-  String get path => '$assetPath/$name.png';
+  String get path => '$assetPath$name.png';
 }
