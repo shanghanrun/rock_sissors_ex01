@@ -3,17 +3,10 @@ import 'package:rock_sissors_ex01/const/input_type.dart';
 import 'package:rock_sissors_ex01/widget/cpu_input_card.dart';
 
 class CpuInput extends StatelessWidget {
-  final bool isDone;
-  final InputType cpuInput;
-  final Function(InputType) callback;
-  const CpuInput(
-      {required this.isDone,
-      required this.cpuInput,
-      required this.callback,
-      super.key});
+  const CpuInput({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return CpuInputCard(type: cpuInput, callback: callback);
+    return CpuInputCard();
   }
 }

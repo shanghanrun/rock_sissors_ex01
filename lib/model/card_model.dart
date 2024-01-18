@@ -1,21 +1,25 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:rock_sissors_ex01/const/input_type.dart';
 
 class CardModel with ChangeNotifier {
-  late bool isDone;
-  late InputType inputType;
-  final Function(InputType) callback;
+  bool isDone;
+  InputType userInput;
+  InputType cpuInput;
 
   CardModel(
-      {required this.isDone, required this.inputType, required this.callback});
+      {required this.isDone, required this.userInput, required this.cpuInput});
 
   void changeIsDone() {
     isDone = !isDone;
     notifyListeners();
   }
 
-  void changeInputType(InputType type) {
-    inputType = type;
+  void changeInput(InputType type) {
+    userInput = type;
+    var index = Random().nextInt(3);
+    cpuInput = InputType.values[index];
     notifyListeners();
   }
 }
